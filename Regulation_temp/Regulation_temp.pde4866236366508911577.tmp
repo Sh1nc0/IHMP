@@ -1,0 +1,72 @@
+
+PFont font12;
+PFont font18;
+PFont font50;
+PImage temp_serre;
+
+int y = 0;
+float temp = 46;
+int mercure = 0;
+
+void setup(){
+  size(1000,500);
+  temp_serre = loadImage("InterfaceTh1000x500.gif");
+  
+  font12 = loadFont("Verdana-12.vlw");
+  font18 = loadFont("Verdana-18.vlw");
+  font50 = loadFont("Verdana-50.vlw");
+  background(temp_serre);
+
+}
+void draw(){
+
+  textFont(font50);
+  textAlign(LEFT,BOTTOM);
+  fill(70);
+  text(temp,240,70);
+  graduation();
+  mercure();
+  graph();
+  
+  
+}
+void graduation(){
+  strokeWeight(1);
+
+  for(byte i = 0; i <= 100; i++){
+    if(i == y){
+      y = y +10;  
+      stroke(255,0,0);
+      line(65,380 - 3*i,75, 380 - 3*i);
+      fill(70);
+      textFont(font12);
+      textAlign(CENTER,BOTTOM);
+      text(y - 10, 50, 385-3*i);
+     }
+     else{
+       stroke(0);
+       line(70,380 - 3*i,75, 380 - 3*i);
+     }
+  }
+  
+}
+
+void mercure(){
+  mercure = (int(temp)*300)/100;
+  fill(192,0,0);
+  stroke(192,0,0);
+  rect(96,380,20,-mercure);
+  rect(96,400,20,-19);
+}
+void graph(){
+  fill(253,253,150);
+  stroke(0);
+  strokeWeight(2);
+  rect(240,120,700,300);
+  
+  strokeWeight(1);
+  for(byte x = 0;x <=100;x++){
+    stroke(225);
+    line(240 +7*x,420,240+7*x,120);
+  }
+}
