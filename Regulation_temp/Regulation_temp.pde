@@ -103,8 +103,8 @@ void graph(){
 }
 void courbe(){
   stroke(0);
-  for(byte i =0; i <=100; i++){
-    line(240+7*i,420-((tempHistory[i]*300)/100), 240+7*i+1, 420-((tempHistory[i+1]*300)/100));
+  for(byte i =0; i < 100; i++){
+    line(240+7*i,420-((tempHistory[i]*300)/100), 240+7*(i+1), 420-((tempHistory[i+1]*300)/100));
   }
   
 }
